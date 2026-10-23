@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptsniff"
+version = "0.1.0"
+description = "Catch prompt injections hidden in web pages before your AI agent reads them."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Matteo Elezi" }]
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["llm", "prompt-injection", "ai-security", "agents"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.5"]
+
+[project.scripts]
+promptsniff = "promptsniff.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "SIM"]
